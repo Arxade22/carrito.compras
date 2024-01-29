@@ -5,10 +5,11 @@ import com.challenge.carrito.compras.repository.ClienteRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 @Service
 public class ClienteService {
 
-    private ClienteRepository clienteRepository;
+    private final ClienteRepository clienteRepository;
 
     public ClienteService(ClienteRepository clienteRepository) {
         this.clienteRepository = clienteRepository;
@@ -35,13 +36,9 @@ public class ClienteService {
         return clienteRepository.findAll();
     }
 
-
-
-
     private static class ClienteExistenteException extends RuntimeException {
         public ClienteExistenteException(String message) {
             super(message);
         }
     }
 }
-
